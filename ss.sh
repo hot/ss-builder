@@ -32,7 +32,7 @@ PASS=`openssl rand -base64 32`
 sysctl net.core.default_qdisc=fq
 sysctl net.ipv4.tcp_congestion_control=bbr
 
-ss-server -s 0.0.0.0 -p $PORT -k $PASS -m aes-256-cfb --fast-open &
+ss-server -s 0.0.0.0 -p $PORT -k $PASS -m aes-256-cfb -a nobody --fast-open &
 
 RED='\033[0;31m'
 NC='\033[0m' # No Color
