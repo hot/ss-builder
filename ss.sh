@@ -23,6 +23,7 @@ sleep 2
 
 PORT=$(( ( RANDOM % 50000 )  + 8000 ))
 PASS=`openssl rand -base64 32`
+CIPHER="aes-256-gcm"
 
 
 #echo "按任意键运行shadowsocks"
@@ -32,7 +33,7 @@ PASS=`openssl rand -base64 32`
 sysctl net.core.default_qdisc=fq
 sysctl net.ipv4.tcp_congestion_control=bbr
 
-ss-server -s 0.0.0.0 -p $PORT -k $PASS -m aes-256-cfb -a nobody --fast-open &
+ss-server -s 0.0.0.0 -p $PORT -k $PASS -m $CIPHER -a nobody --fast-open &
 
 RED='\033[0;31m'
 NC='\033[0m' # No Color
@@ -40,7 +41,7 @@ NC='\033[0m' # No Color
 printf "${RED}>>>>>>请记下下面的配置<<<<<<<${NC}\n"
 printf "端口(port):${RED}${PORT}${NC}\n"
 printf "密码(password):${RED}${PASS}${NC}\n"
-printf "加密方法(cipher):${RED}aes-256-cfb${NC}\n"
+printf "加密方法(cipher):${RED}${CIPHER}${NC}\n"
 printf "${RED}>>>>>>请记下上面的配置置<<<<<<<${NC}\n"
 echo "shadowsocks安装完成，用客户端链接一下试试吧：）"
 
