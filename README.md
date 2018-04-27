@@ -10,7 +10,9 @@
 
 ## 使用方法
 
-{{{cd `mktemp -d`&&wget --no-check-certificate -O ss.sh https://raw.githubusercontent.com/hot/ss-builder/master/ss.sh&&bash ss.sh}}}
+```bash
+cd `mktemp -d`&&wget --no-check-certificate -O ss.sh https://raw.githubusercontent.com/hot/ss-builder/master/ss.sh&&bash ss.sh
+```
 
 [详细图文教程](https://geekorz.com/post/10min-shadowsock/)
 
