@@ -5,7 +5,7 @@ sleep 2
 mkdir -p /tmp/ss
 cd /tmp/ss
 
-sudo apt-get update
+sudo apt-get update && apt-get upgrade && apt-get dist-upgrade
 sudo apt-get install --no-install-recommends git build-essential autoconf libtool libssl-dev gawk debhelper dh-systemd init-system-helpers pkg-config xmlto apg zlib1g-dev libudns-dev libsodium-dev -y
 sudo apt-get install --no-install-recommends gettext libpcre3-dev asciidoc libev-dev libc-ares-dev automake libmbedtls-dev -y
 git clone https://github.com/shadowsocks/shadowsocks-libev.git
